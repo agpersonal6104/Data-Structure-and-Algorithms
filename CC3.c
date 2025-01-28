@@ -63,7 +63,7 @@ void analyze(char *code) {
 }
 
 int main() {
-    char code[] = "int main() { int a = 5; // This is a comment\n a += 10; /* Another comment */ }";
+    char code[] = "#include<stdio.h> void main() { int a,b,c; clrscr(); printf(\"enter two numbers\"); scanf(\"%d%d\",&a,&b); c=a+b; printf(\"Sum of two numbers is %d\",c); getch(); }";
     analyze(code);
     return 0;
 }
