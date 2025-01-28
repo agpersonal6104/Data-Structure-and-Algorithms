@@ -63,7 +63,9 @@ void analyze(char *code) {
 }
 
 int main() {
-    char code[] = "#include<stdio.h> void main() { int a,b,c; clrscr(); printf(\"enter two numbers\"); scanf(\"%d%d\",&a,&b); c=a+b; printf(\"Sum of two numbers is %d\",c); getch(); }";
+    char code[1000];
+    printf("Enter the code: ");
+    fgets(code, sizeof(code), stdin);
     analyze(code);
     return 0;
 }
