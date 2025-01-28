@@ -98,7 +98,7 @@ int main()
     {
         int n;
         cin >> n;
-        pattern6(n);
+        pattern3(n);
         m--;
     }
     return 0;
