@@ -52,7 +52,7 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> arr[i];
     }
-    mergeSort(arr, 0, n - 1); // Changed from n to n-1
+    mergeSort(arr, 0, n - 1);
     for (int i = 0; i < n; i++) {
         cout << arr[i] << " ";
     }
