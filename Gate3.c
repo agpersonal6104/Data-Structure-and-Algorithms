@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+// Call by Value
 void swap1(int a,int b)
 {
     int t=a;
@@ -8,6 +9,7 @@ void swap1(int a,int b)
     printf("%d %d\n",a,b);
 }
 
+// Call by Reference using Pointers
 void swap2(int *a,int *b)
 {
     int t=*a;
@@ -16,6 +18,7 @@ void swap2(int *a,int *b)
     printf("%d %d\n",*a,*b);
 }
 
+// Call by Reference using References/Call by Address
 void swap3(int &a,int &b)
 {
     int t=a;
