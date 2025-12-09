@@ -134,6 +134,23 @@ void deleteAt(int index)
     free(temp);
 }
 
+void search(int item)
+{
+    struct node *p=start;
+    int index=0;
+    while(p!=NULL)
+    {
+        if(p->data==item)
+        {
+            printf("Item %d found at index %d\n",item,index);
+            return;
+        }
+        p=p->next;
+        index++;
+    }
+    printf("Item %d not found in the list\n",item);
+}
+
 int main()
 {
     insertFirst(10);
