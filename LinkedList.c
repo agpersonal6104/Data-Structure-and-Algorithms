@@ -12,10 +12,6 @@ struct node *start=NULL;
 void insertFirst(int item)
 {
     struct node *temp=(struct node *)malloc(sizeof(struct node));
-    if(temp == NULL) {
-        printf("Memory allocation failed\n");
-        return;
-    }
     temp->data=item;
     temp->next=NULL;
     
@@ -31,10 +27,6 @@ void insertFirst(int item)
 void insertLast(int item)
 {
     struct node *temp=(struct node *)malloc(sizeof(struct node));
-    if(temp == NULL) {
-        printf("Memory allocation failed\n");
-        return;
-    }
     temp->data=item;
     temp->next=NULL;
     
@@ -51,6 +43,95 @@ void insertLast(int item)
         p=p->next;
     }
     p->next=temp;
+}
+
+void insertAt(int item, int index)
+{
+    struct node *temp=(struct node *)malloc(sizeof(struct node));
+    temp->data=item;
+    temp->next=NULL;
+    if(index==0)
+    {
+        temp->next=start;
+        start=temp;
+        return;
+    }
+    struct node *p=start;
+    for(int i=0;i<index-1 && p!=NULL;i++)
+    {
+        p=p->next;
+    }
+    if(p==NULL)
+    {
+        printf("Index out of bounds\n");
+        free(temp);
+        return;
+    }
+    temp->next=p->next;
+    p->next=temp;
+}
+
+void deleteFirst()
+{
+    if(start==NULL)
+    {
+        printf("List is empty\n");
+        return;
+    }
+    struct node *temp=start;
+    start=start->next;
+    free(temp);
+}
+
+void deleteLast()
+{
+    if(start==NULL)
+    {
+        printf("List is empty\n");
+        return;
+    }
+    if(start->next==NULL)
+    {
+        free(start);
+        start=NULL;
+        return;
+    }
+    struct node *p=start;
+    while(p->next->next!=NULL)
+    {
+        p=p->next;
+    }
+    free(p->next);
+    p->next=NULL;
+}
+
+void deleteAt(int index)
+{
+    if(start==NULL)
+    {
+        printf("List is empty\n");
+        return;
+    }
+    if(index==0)
+    {
+        struct node *temp=start;
+        start=start->next;
+        free(temp);
+        return;
+    }
+    struct node *p=start;
+    for(int i=0;i<index-1 && p->next!=NULL;i++)
+    {
+        p=p->next;
+    }
+    if(p->next==NULL)
+    {
+        printf("Index out of bounds\n");
+        return;
+    }
+    struct node *temp=p->next;
+    p->next=temp->next;
+    free(temp);
 }
 
 int main()
